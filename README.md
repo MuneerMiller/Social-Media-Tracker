@@ -19,5 +19,5 @@ This project is a **Social Media Dashboard** that displays followers and engagem
 To get this project up and running locally:
 
 1. **Clone this repository** to your local machine.
-   ```bash
-https://github.com/MuneerMiller/Social-Media-Tracker.git
+   ```bash https://github.com/MuneerMiller/Social-Media-Tracker.git
+
