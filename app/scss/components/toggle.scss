@@ -1,5 +1,4 @@
 @use '../util' as *;
-// https://codepen.io/SaraSoueidan/pen/jpBbrq/?editors=1100
 
 .toggle {
   display: grid;
@@ -49,7 +48,6 @@
     position: absolute;
     left: rem(3);
     top: rem(3);
-    right: 100%;
     width: rem(18);
     height: rem(18);
     border-radius: 50%;
@@ -57,14 +55,13 @@
     transition: all 150ms ease-in-out;
   }
 
-  #light:checked ~ .toggle__button {
-    left: calc(100% - 21px);
-    right: 3px;
+  #dark:checked ~ .toggle__button {
+    left: rem(3);
+    right: calc(100% - 21px);
   }
 
-  #system:checked ~ .toggle__button {
-    left: 50%;
-    right: auto;
-    transform: translate(-50%);
+  #light:checked ~ .toggle__button {
+    left: calc(100% - 21px);
+    right: rem(3);
   }
 }
