@@ -25,21 +25,21 @@ To get this project up and running locally:
 cd Social-Media-Tracker
 ```
 
-##Features
+## Features
 
 - Dark/Light Mode Toggle: Users can toggle between light and dark themes. The selected mode is stored in local storage to persist user preferences.
 - Responsive Design: Optimized for desktop and mobile views using CSS Grid and Flexbox.
 - SASS Styling and Modular Structure: All styling is managed through SASS, using a modular structure with reusable components and utility files.
 - Live Reloading: Integrated BrowserSync for live reloading on file changes, enhancing the development experience.
 
-##File Structure
+## File Structure
 
 - index.html - Main HTML file for the dashboard layout.
 - app/scss - Contains SASS files, split into components, utilities, and global styling files.
 - app/js - Contains script.js with JavaScript for managing theme toggle functionality.
 - gulpfile.js - Gulp configuration file for automating tasks such as compiling SASS, minifying JavaScript, and live reloading.
 
-##Technologies Used
+## Technologies Used
 
 - HTML5 - Semantic markup.
 - CSS3/SASS - Styling with a modular SASS structure and variables for theming.
@@ -48,7 +48,7 @@ cd Social-Media-Tracker
 - PostCSS - Used for autoprefixing and minifying CSS.
 - BrowserSync - Live reloading during development.
 
-##Development Workflow
+## Development Workflow
 
 - Key Gulp Tasks
 - scssTask - Compiles SASS files, adds prefixes, and minifies CSS.
