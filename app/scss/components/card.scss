@@ -3,10 +3,11 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: rem(30);
+  gap: rem(24);
 
   @include breakpoint(medium) {
     grid-template-columns: repeat(2, 1fr);
+    gap: rem(30);
   }
 
   @include breakpoint(large) {
@@ -18,79 +19,70 @@
   position: relative;
   overflow: hidden;
   background: var(--card-bg);
-  color: var(--dark-text1);
+  color: var(--text-color2);
   padding: rem(25);
   border-radius: rem(5);
   text-align: center;
-  transition: background 150ms ease-in-out;
   cursor: pointer;
+  transition: background-color 150ms ease-in-out, transform 150ms ease-in-out;
 
   &:hover {
     background: var(--card-hover);
+    transform: translateY(rem(-2));
   }
 
-  &--facebook {
-    border-top: rem(5) solid var(--facebook);
-  }
-
-  &--twitter {
-    border-top: rem(5) solid var(--twitter);
-  }
-
-  &--instagram {
+  // Coloured platform accent along the top edge
+  &--facebook,
+  &--twitter,
+  &--instagram,
+  &--youtube {
     padding-top: rem(30);
 
     &::before {
       content: '';
       position: absolute;
-      display: block;
-      left: 0;
-      top: 0;
-      width: 100%;
+      inset: 0 0 auto;
       height: rem(5);
-      background: linear-gradient(
-        225deg,
-        var(--instagram-end),
-        var(--instagram-middle) 50.91%,
-        var(--instagram-start) 100%
-      ); // var(--instagram-start);
+      background: var(--accent);
     }
-    //border-top: rem(5) solid linear-gradient(225deg, hsl(329, 70%, 58%) 0%, hsl(5, 77%, 71%) 50.91%, #fdc366 100%);
+  }
+
+  &--facebook {
+    --accent: var(--facebook);
+  }
+
+  &--twitter {
+    --accent: var(--twitter);
+  }
+
+  &--instagram {
+    --accent: linear-gradient(
+      225deg,
+      var(--instagram-end),
+      var(--instagram-middle) 50.91%,
+      var(--instagram-start) 100%
+    );
   }
 
   &--youtube {
-    border-top: rem(5) solid var(--youtube);
+    --accent: var(--youtube);
   }
 
   &__platform {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: rem(8);
     height: rem(20);
-    margin-top: rem(5);
     margin-bottom: rem(28);
   }
 
   &__subtitle {
+    margin: 0;
     font-size: rem(14);
     font-weight: 700;
+    line-height: 1.4;
     color: var(--text-color2);
-  }
-
-  &__icon {
-    margin-right: rem(8);
-
-    &--facebook {
-    }
-
-    &--twitter {
-    }
-
-    &--instagram {
-    }
-
-    &--youtube {
-    }
   }
 
   &__username {
@@ -104,11 +96,13 @@
   }
 
   &__count {
+    display: block;
     color: var(--text-color);
     font-weight: 700;
     letter-spacing: rem(-2);
     line-height: 1;
     margin-bottom: rem(4);
+    transition: color 200ms ease-in-out;
 
     &--big {
       font-size: rem(56);
@@ -116,10 +110,12 @@
 
     &--small {
       font-size: rem(32);
+      letter-spacing: 0;
     }
   }
 
   &__label {
+    display: block;
     font-size: rem(12);
     letter-spacing: rem(5);
     font-weight: 400;
@@ -131,6 +127,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: rem(4);
     font-size: rem(12);
     font-weight: 700;
 
@@ -141,12 +138,5 @@
     &--down {
       color: var(--brightred);
     }
-
-    img {
-      margin-right: rem(4);
-    }
-  }
-
-  &__number {
   }
 }

@@ -24,7 +24,13 @@
   --light-card-hover: hsl(228, 33%, 91%);
   --light-text1: hsl(230, 12%, 44%);
   --light-text2: hsl(230, 17%, 14%);
+}
+
+// Theme tokens. Light is the default; dark applies when the OS prefers it
+// (no-JS fallback) or when the theme script sets `.dark` on <html>.
+@mixin light-theme {
   --background: var(--light-bg);
+  --top-bg: var(--light-top-bg);
   --text-color: var(--light-text2);
   --text-color2: var(--light-text1);
   --card-bg: var(--light-card);
@@ -32,30 +38,42 @@
   --toggle: var(--toggle-light);
   --toggle-bg: var(--toggle-bg-light);
   --toggle-button: var(--toggle-button-light);
+  --focus-ring: var(--toggle-bg-start);
+  color-scheme: light;
 }
 
-body.light {
-  --background: var(--light-bg);
-  --text-color: var(--light-text2);
-  --text-color2: var(--light-text1);
-  --card-bg: var(--light-card);
-  --card-hover: var(--light-card-hover);
-  --toggle: var(--toggle-light);
-  --toggle-bg: var(--toggle-bg-light);
-  --toggle-button: var(--toggle-button-light);
-}
-
-body.dark {
+@mixin dark-theme {
   --background: var(--dark-bg);
+  --top-bg: var(--dark-top-bg);
   --text-color: var(--dark-text2);
   --text-color2: var(--dark-text1);
   --card-bg: var(--dark-card);
   --card-hover: var(--dark-card-hover);
-  --toggle: var(--light-bg);
+  --toggle: var(--dark-text1);
   --toggle-bg: linear-gradient(
     225deg,
     var(--toggle-bg-end) 0%,
     var(--toggle-bg-start) 98.02%
   );
   --toggle-button: var(--dark-bg);
+  --focus-ring: var(--toggle-bg-end);
+  color-scheme: dark;
+}
+
+:root {
+  @include light-theme;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    @include dark-theme;
+  }
+}
+
+:root.light {
+  @include light-theme;
+}
+
+:root.dark {
+  @include dark-theme;
 }
