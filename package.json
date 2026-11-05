@@ -1,13 +1,19 @@
 {
-  "name": "fem-dklt-toggle",
+  "name": "social-media-tracker",
   "version": "1.0.0",
-  "description": "![Design preview for the Social media dashboard with theme switcher coding challenge](./design/desktop-preview.jpg)",
-  "main": "index.js",
+  "private": true,
+  "description": "Responsive social media dashboard with an accessible light/dark theme toggle.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp",
+    "dev": "gulp",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuneerMiller/Social-Media-Tracker.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Muneer Miller",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.14.6",

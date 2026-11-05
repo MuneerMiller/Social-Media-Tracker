@@ -1,3 +1,5 @@
+@use '../util' as *;
+
 html {
   font-size: 100%;
   box-sizing: border-box;
@@ -10,18 +12,99 @@ html {
 }
 
 body {
+  position: relative;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: var(--font-inter);
   background: var(--background);
   color: var(--text-color);
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+
+  // Coloured band behind the header, as in the design
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: -1;
+    height: rem(235);
+    background: var(--top-bg);
+    border-radius: 0 0 rem(20) rem(20);
+    transition: background-color 200ms ease-in-out;
+  }
 }
 
+p {
+  margin: 0;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+ul[role='list'] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+// Hidden visually but still announced by screen readers
 .visually-hidden {
-  position: absolute;
-  left: -10000px;
-  top: auto;
+  position: absolute !important;
   width: 1px;
   height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: rem(8);
+  left: rem(8);
+  z-index: 10;
+  padding: rem(8) rem(16);
+  border-radius: rem(5);
+  background: var(--card-bg);
+  color: var(--text-color);
+  font-weight: 700;
+  transform: translateY(-200%);
+  transition: transform 150ms ease-in-out;
+
+  &:focus {
+    transform: translateY(0);
+  }
+}
+
+.attribution {
+  padding: 0 rem(25) rem(32);
+  font-size: rem(11);
+  text-align: center;
+  color: var(--text-color2);
+
+  a {
+    color: var(--text-color);
+    font-weight: 700;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
 }
