@@ -22,6 +22,8 @@ Built as a solution to the [Frontend Mentor](https://www.frontendmentor.io?ref=c
 - [Accessibility](#accessibility)
 - [Technologies Used](#technologies-used)
 - [Deployment](#deployment)
+- [Credits](#credits)
+- [Licence](#licence)
 
 ## Features
 
@@ -127,3 +129,7 @@ Run `npm run build` and commit `dist/` before you deploy any style or script cha
 
 - Challenge by [Frontend Mentor](https://www.frontendmentor.io?ref=challenge)
 - Coded by [Muneer Miller](https://github.com/MuneerMiller)
+
+## Licence
+
+Copyright © 2026 Mogamat Muneer Miller. All rights reserved. The code is public so you can read it and learn from it, but it is not open source. The design and assets belong to Frontend Mentor. See [LICENSE](LICENSE).
